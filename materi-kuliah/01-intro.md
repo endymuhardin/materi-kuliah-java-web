@@ -15,7 +15,7 @@
     <packaging>war</packaging>
     ```
 
-3. Buat struktur folder aplikasi web : `src/main/webapp/WEB-INF/web.xml'
+3. Buat struktur folder aplikasi web : `src/main/webapp/WEB-INF/web.xml`
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
