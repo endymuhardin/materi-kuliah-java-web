@@ -130,6 +130,39 @@ Cara membuat `Servlet` :
         * setelah folder aplikasi terhapus, undeploy berarti sukses
 
 
+## Komponen Aplikasi Web Java ##
+
+### Servlet ###
+
+Digunakan untuk menerima HTTP request dan membuat HTTP response
+
+Cara membuat: 
+
+1. Extends class HttpServlet
+2. Override method doXXX
+
+### Filter ###
+
+Digunakan untuk : 
+
+* mencegat HTTP request sebelum ditangani servlet
+* mencegat HTTP response sebelum dikirim ke requester
+
+Contoh penggunaan : 
+
+* memproteksi URL yang membutuhkan login
+* mendekorasi HTML dengan header/footer/sidebar
+* kompresi response
+
+### Listener ###
+
+Digunakan untuk merespon event dalam aplikasi, misalnya: 
+
+* aplikasi distart / deploy (context created)
+* aplikasi distop / undeploy (context destroyed)
+* session dibuat
+* session timeout
+* session dihapus (invalidation)
 
 
 
