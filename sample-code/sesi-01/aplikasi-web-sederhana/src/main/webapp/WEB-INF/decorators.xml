@@ -1,0 +1,8 @@
+<decorators defaultdir="/WEB-INF/decorators">
+    <excludes>
+        <pattern>/login.html</pattern>
+    </excludes>
+    <decorator name="utama" page="template-utama.jsp">
+        <pattern>/*</pattern>
+    </decorator>
+</decorators>
