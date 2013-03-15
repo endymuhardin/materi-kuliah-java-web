@@ -113,21 +113,21 @@ Cara membuat `Servlet` :
 
 2. Packaging
 
-    * folder dikompres dengan format zip
-    * extension zip direname menjadi war
+        * folder dikompres dengan format zip
+        * extension zip direname menjadi war
 
 3. Deploy
 
-    * masukkan file `war` ke folder deployment sesuai merek application server yang digunakan
-    * contoh: untuk Tomcat, folder deploymentnya adalah `webapps`
-    * Tomcat akan meng-extract file `war` tersebut
-    * Setelah deployment selesai (ditandai dengan file telah diextract dan tidak ada error di log)
-      aplikasi bisa dibrowse
+        * masukkan file `war` ke folder deployment sesuai merek application server yang digunakan
+        * contoh: untuk Tomcat, folder deploymentnya adalah `webapps`
+        * Tomcat akan meng-extract file `war` tersebut
+        * Setelah deployment selesai (ditandai dengan file telah diextract dan tidak ada error di log)
+          aplikasi bisa dibrowse
 
 4. Undeploy
 
-    * hapus file `war` dari folder deployment
-    * setelah folder aplikasi terhapus, undeploy berarti sukses
+        * hapus file `war` dari folder deployment
+        * setelah folder aplikasi terhapus, undeploy berarti sukses
 
 
 
