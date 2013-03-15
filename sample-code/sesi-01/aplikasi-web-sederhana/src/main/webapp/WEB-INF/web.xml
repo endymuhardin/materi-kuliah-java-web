@@ -34,6 +34,16 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
     
+    <filter>
+        <filter-name>haloFilter</filter-name>
+        <filter-class>com.muhardin.endy.training.web.HaloFilter</filter-class>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>haloFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
     <servlet>
         <servlet-name>halo</servlet-name>
         <servlet-class>com.muhardin.endy.training.web.HaloServlet</servlet-class>
