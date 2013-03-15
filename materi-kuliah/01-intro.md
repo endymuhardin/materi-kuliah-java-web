@@ -141,6 +141,48 @@ Cara membuat:
 1. Extends class HttpServlet
 2. Override method doXXX
 
+Contoh implementasi : 
+
+* Java (kode program)
+
+    ```java
+    public class HaloServlet extends HttpServlet {
+        public void doGet(HttpServletRequest request, HttpServletResponse response) {
+            try {
+                String asal = request.getRemoteAddr();
+                String nama = request.getParameter("nama");
+                        
+                String output = "<html>";
+                output += "<body>";
+                output += "<h1>Halo "+nama+"</h1>";
+                output += "<h2>Anda datang dari "+asal+"</h2>";
+                output += "</body>";
+                output += "</html>";
+                
+                // content type = html
+                response.setContentType("text/html");
+                response.getWriter().print(output);
+            } catch (IOException ex) {
+                Logger.getLogger(HaloServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    ```
+
+* web.xml (konfigurasi)
+
+    ```xml
+    <servlet>
+        <servlet-name>halo</servlet-name>
+        <servlet-class>com.muhardin.endy.training.web.HaloServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>halo</servlet-name>
+        <url-pattern>/halo.php</url-pattern>
+    </servlet-mapping>
+    ```
+
 ### Filter ###
 
 Digunakan untuk : 
