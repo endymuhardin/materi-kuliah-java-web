@@ -8,25 +8,29 @@
 
 2. Ubah tipe packaging dari `jar` menjadi `war`
 
-          <groupId>com.muhardin.endy.training.web</groupId>
-          <artifactId>aplikasi-web-sederhana</artifactId>
-          <version>1.0-SNAPSHOT</version>
-          <packaging>war</packaging>
+    ```xml
+    <groupId>com.muhardin.endy.training.web</groupId>
+    <artifactId>aplikasi-web-sederhana</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+    ```
 
 3. Buat struktur folder aplikasi web : `src/main/webapp/WEB-INF/web.xml'
 
-        <?xml version="1.0" encoding="UTF-8"?>
-        <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
-	        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-        </web-app>
+    </web-app>
+    ```
 
 4. Buka di Netbeans
 
 5. Test Jalankan
 
-        `mvn tomcat:run`
+        mvn tomcat:run
 
 ## Membuat handler untuk HTTP request ##
 
@@ -54,10 +58,10 @@ Cara membuat `Servlet` :
 
 3. Implement method sesuai HTTP method yang akan kita gunakan. 
 
-    * GET -> doGet(HttpServletRequest req, HttpServletResponse res)
-    * POST -> doPost(HttpServletRequest req, HttpServletResponse res)
-    * dst
-    
+        * GET -> doGet(HttpServletRequest req, HttpServletResponse res)
+        * POST -> doPost(HttpServletRequest req, HttpServletResponse res)
+        * dst
+
     ```java
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
         try {
