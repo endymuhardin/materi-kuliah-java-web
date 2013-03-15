@@ -150,9 +150,47 @@ Digunakan untuk :
 
 Contoh penggunaan : 
 
-* memproteksi URL yang membutuhkan login
-* mendekorasi HTML dengan header/footer/sidebar
+* memproteksi URL yang membutuhkan login (Spring Security)
+* mendekorasi HTML dengan header/footer/sidebar (Sitemesh)
 * kompresi response
+
+Contoh implementasi : 
+
+* Java (kode program)
+
+    ```java
+    public class HaloFilter implements Filter{
+
+        public void init(FilterConfig fc) throws ServletException {
+            System.out.println("Filter diinisialisasi");
+        }
+
+        public void doFilter(ServletRequest request, ServletResponse response, FilterChain fc) throws IOException, ServletException {
+            System.out.println("Mencegat request");
+            fc.doFilter(request, response);
+            System.out.println("Mencegat response");
+        }
+
+        public void destroy() {
+            System.out.println("Filter di-destroy");
+        }
+        
+    }
+    ```
+
+* web.xml (konfigurasi) :
+
+    ```xml
+    <filter>
+        <filter-name>haloFilter</filter-name>
+        <filter-class>com.muhardin.endy.training.web.HaloFilter</filter-class>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>haloFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    ```
 
 ### Listener ###
 
@@ -165,9 +203,39 @@ Digunakan untuk merespon event dalam aplikasi, misalnya:
 * session dihapus (invalidation)
 
 
+Contoh implementasi:
 
+* Java (kode program)
 
+    ```java
+    public class HaloListener implements ServletContextListener, HttpSessionListener{
 
+        public void contextInitialized(ServletContextEvent sce) {
+            System.out.println("Aplikasi start");
+        }
+
+        public void contextDestroyed(ServletContextEvent sce) {
+            System.out.println("Aplikasi stop");
+        }
+
+        public void sessionCreated(HttpSessionEvent hse) {
+            System.out.println("Ada session baru");
+        }
+
+        public void sessionDestroyed(HttpSessionEvent hse) {
+            System.out.println("Session di-destroy");
+        }
+        
+    }
+    ```
+
+* web.xml (konfigurasi) :
+
+    ```xml
+    <listener>
+        <listener-class>com.muhardin.endy.training.web.HaloListener</listener-class>
+    </listener>
+    ```
 
 
 
