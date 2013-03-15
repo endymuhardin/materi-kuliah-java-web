@@ -102,7 +102,32 @@ Cara membuat `Servlet` :
 
         mvn clean package tomcat:run
 
-6. Test browse ke http://localhost:8080/aplikasi-web-sederhana/halo.php?nama=endy
+6. Test browse ke `http://localhost:8080/aplikasi-web-sederhana/halo.php?nama=endy`
+
+
+## Konsep Aplikasi Web Java ##
+
+1. Struktur Folder
+
+    ![Struktur Folder Aplikasi Web Java](img/struktur-folder-web-java.png?raw=true)
+
+2. Packaging
+
+    * folder dikompres dengan format zip
+    * extension zip direname menjadi war
+
+3. Deploy
+
+    * masukkan file `war` ke folder deployment sesuai merek application server yang digunakan
+    * contoh: untuk Tomcat, folder deploymentnya adalah `webapps`
+    * Tomcat akan meng-extract file `war` tersebut
+    * Setelah deployment selesai (ditandai dengan file telah diextract dan tidak ada error di log)
+      aplikasi bisa dibrowse
+
+4. Undeploy
+
+    * hapus file `war` dari folder deployment
+    * setelah folder aplikasi terhapus, undeploy berarti sukses
 
 
 
@@ -111,4 +136,12 @@ Cara membuat `Servlet` :
 
 
 
-        
+
+
+
+
+
+
+
+
+
