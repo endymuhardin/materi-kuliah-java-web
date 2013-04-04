@@ -11,12 +11,10 @@ Ganti npm dengan NPM Anda.
 3. Akses aplikasi web yang sudah dijalankan melalui browser. Ambil screenshotnya dan simpan dengan nama screenshot-halo-npm.jpg
 Ganti npm dengan NPM Anda.
 
-4. Buatlah servlet yang menerima parameter nama dan mengeluarkan tulisan Halo NAMA. Input dikonversi dulu menjadi huruf besar sebelum ditampilkan.
+4. Buatlah servlet yang menerima parameter nama dan mengeluarkan tulisan Halo NAMA. Input dikonversi dulu menjadi huruf besar sebelum ditampilkan. Contoh:
 
-    Contoh:
-
-    - input : endy
-    - output : Halo ENDY
+        * input : endy
+        * output : Halo ENDY
 
 5. Deploy aplikasi yang sudah dibuat ke Tomcat, lalu akses dari browser. Copy log filenya dan buat screenshot seperti no.3
 
