@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo AngularJS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+        <script src="aplikasi.js"></script>
+  
+    </head>
+    <body ng-app>
+        <h1>Demo AngularJS</h1>
+
+        Nama : <input type="text" ng-model="nama"> <br>
+        Halo {{nama}}
+        <br>
+        Email : {{email}}
+
+        <div ng-controller="HaloController">
+            Email : {{email}}
+
+            <ul>
+                <li ng-repeat="x in socialNetwork">{{x}}</li>
+            </ul>
+        </div>
+
+
+    </body>
+</html>
