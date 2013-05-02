@@ -64,5 +64,5 @@ Berikut adalah langkah-langkah untuk menggunakan Sitemesh.
    <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator" %>
    ```
 
-   * gunakan taglib sitemesh, yaitu `<decorator:head>`, `<decorator:title>`, dan `<decorator:body>`
+   * gunakan taglib sitemesh, yaitu `<decorator:head>`, `<decorator:title>`, dan `<decorator:body>`, bisa dilihat [contohnya di sini](https://github.com/endymuhardin/materi-kuliah-java-web/blob/master/sample-code/sesi-01/aplikasi-web-sederhana/src/main/webapp/WEB-INF/decorators/template-utama.jsp) di baris `2` dan `100`. Perhatikan juga link ke `css`, `js`, dan `img` juga dibuat dinamis di baris `13`, `32`, `116`, `117`. Demikian juga dengan link URL di baris `67`.
    
