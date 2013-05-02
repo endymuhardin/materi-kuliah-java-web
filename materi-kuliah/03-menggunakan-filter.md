@@ -56,7 +56,7 @@ Berikut adalah langkah-langkah untuk menggunakan Sitemesh.
     </decorators>
     ```
 
-7. Buat template sitemesh
+7. Buat template sitemesh sesuai konfigurasi di langkah 6, yaitu file bernama `template-utama.jsp` dalam folder `src/main/webapp/WEB-INF/decorators`
    
    * tambahkan deklarasi taglib sitemesh
    
