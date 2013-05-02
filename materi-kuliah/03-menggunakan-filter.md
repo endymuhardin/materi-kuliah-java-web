@@ -9,7 +9,7 @@ tanpa harus copy/paste di seluruh halaman jsp/html/servlet kita.
 
 Berikut adalah langkah-langkah untuk menggunakan Sitemesh.
 
-1. Siapkan maven project untuk aplikasi web. Cara menyiapkan aplikasi web bisa dibaca di [materi intro](https://github.com/endymuhardin/materi-kuliah-java-web/blob/master/materi-kuliah/01-intro.md).
+1. Siapkan maven project untuk aplikasi web. Cara menyiapkan aplikasi web bisa dibaca di [materi intro](https://github.com/endymuhardin/materi-kuliah-java-web/blob/master/materi-kuliah/01-intro.md). Hasil akhir dari tutorial ini bisa dilihat [di sini](https://github.com/endymuhardin/materi-kuliah-java-web/tree/master/sample-code/sesi-01/aplikasi-web-sederhana), bila memerlukan panduan tentang struktur folder dan posisi meletakkan berbagai file yang dibahas di sini.
 
 
 2. Download template css gratis yang banyak tersedia di internet. Misalnya di [Website Free Css Template](http://www.freecsstemplates.org/)
