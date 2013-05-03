@@ -121,7 +121,7 @@ Berikut adalah cara menggunakan Spring Security :
     ```
 
 
-3. Buat file `konfig-spring-security.xml` untuk mendefinisikan ijin akses
+3. Buat file `konfig-spring-security.xml` dalam folder `src/main/webapp/WEB-INF` seperti konfigurasi di `web.xml` untuk mendefinisikan ijin akses
 
     ```xml
     <beans:beans xmlns="http://www.springframework.org/schema/security"
