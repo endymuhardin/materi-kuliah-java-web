@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:context="http://www.springframework.org/schema/context"
         xsi:schemaLocation="
 http://www.springframework.org/schema/beans 
-http://www.springframework.org/schema/beans/spring-beans.xsd">
+http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
@@ -12,12 +14,5 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
         <property name="password" value="admin" />
     </bean>
     
-    <bean id="produkDao" class="com.muhardin.endy.training.ProdukDao">
-        <property name="dataSource" ref="dataSource" />
-    </bean>
-    
-    <bean id="jenisProdukDao" class="com.muhardin.endy.training.JenisProdukDao">
-        <property name="dataSource" ref="dataSource" />
-    </bean>
-
+    <context:component-scan base-package="com.muhardin.endy.training" />
 </beans>

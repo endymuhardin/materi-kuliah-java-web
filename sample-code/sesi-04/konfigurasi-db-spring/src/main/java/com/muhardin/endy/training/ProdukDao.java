@@ -10,24 +10,23 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author endy
  */
+@Repository
 public class ProdukDao {
 
-    private DataSource dataSource;
+    @Autowired private DataSource dataSource;
     
     private String sqlInsert = "insert into produk (kode, nama, harga, terakhir_update) "
             + "values (?,?,?,?)";
     private String sqlUpdate = "update produk set kode=?, nama=?, harga=?, terakhir_update=? "
             + "where id = ?";
     private String sqlCariSemuaProduk = "select * from produk order by kode";
-
-    public void setDataSource(DataSource dataSource) throws Exception {
-        this.dataSource = dataSource;
-    }
 
     public void simpan(Produk p) throws Exception {
         Connection c = dataSource.getConnection();
