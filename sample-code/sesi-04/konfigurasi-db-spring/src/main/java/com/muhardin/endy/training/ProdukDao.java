@@ -4,6 +4,7 @@
  */
 package com.muhardin.endy.training;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -17,26 +18,22 @@ import javax.sql.DataSource;
 public class ProdukDao {
 
     private DataSource dataSource;
-    private PreparedStatement psInsert;
-    private PreparedStatement psUpdate;
-    private PreparedStatement psCariSemuaProduk;
+    
+    private String sqlInsert = "insert into produk (kode, nama, harga, terakhir_update) "
+            + "values (?,?,?,?)";
+    private String sqlUpdate = "update produk set kode=?, nama=?, harga=?, terakhir_update=? "
+            + "where id = ?";
+    private String sqlCariSemuaProduk = "select * from produk order by kode";
 
     public void setDataSource(DataSource dataSource) throws Exception {
         this.dataSource = dataSource;
-
-        String sqlInsert = "insert into produk (kode, nama, harga, terakhir_update) "
-                + "values (?,?,?,?)";
-        String sqlUpdate = "update produk set kode=?, nama=?, harga=?, terakhir_update=? "
-                + "where id = ?";
-        String sqlCariSemuaProduk = "select * from produk order by kode";
-
-        psInsert = dataSource.getConnection().prepareStatement(sqlInsert);
-        psUpdate = dataSource.getConnection().prepareStatement(sqlUpdate);
-        psCariSemuaProduk = dataSource.getConnection().prepareStatement(sqlCariSemuaProduk);
     }
 
     public void simpan(Produk p) throws Exception {
+        Connection c = dataSource.getConnection();
+
         if (p.getId() == null) {
+            PreparedStatement psInsert = c.prepareStatement(sqlInsert);
             psInsert.setString(1, p.getKode());
             psInsert.setString(2, p.getNama());
             psInsert.setBigDecimal(3, p.getHarga());
@@ -44,6 +41,7 @@ public class ProdukDao {
 
             psInsert.executeUpdate();
         } else {
+            PreparedStatement psUpdate = c.prepareStatement(sqlUpdate);
             psUpdate.setString(1, p.getKode());
             psUpdate.setString(2, p.getNama());
             psUpdate.setBigDecimal(3, p.getHarga());
@@ -52,13 +50,17 @@ public class ProdukDao {
 
             psUpdate.executeUpdate();
         }
+        c.close();
     }
 
     public List<Produk> cariSemuaProduk() throws Exception {
         List<Produk> hasil = new ArrayList<Produk>();
 
+        Connection c = dataSource.getConnection();
+        PreparedStatement psCariSemuaProduk = c.prepareStatement(sqlCariSemuaProduk);
+        
         ResultSet rs = psCariSemuaProduk.executeQuery();
-        while(rs.next()){
+        while (rs.next()) {
             Produk p = new Produk();
             p.setId(rs.getInt("id"));
             p.setKode(rs.getString("kode"));
@@ -67,7 +69,8 @@ public class ProdukDao {
             p.setTerakhirUpdate(rs.getDate("terakhir_update"));
             hasil.add(p);
         }
-        
+
+        c.close();
         return hasil;
     }
 }

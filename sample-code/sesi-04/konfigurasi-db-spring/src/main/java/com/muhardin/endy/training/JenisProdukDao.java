@@ -1,5 +1,6 @@
 package com.muhardin.endy.training;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -7,53 +8,51 @@ import java.util.List;
 import javax.sql.DataSource;
 
 public class JenisProdukDao {
-    
+
     private DataSource dataSource;
-    private PreparedStatement psInsert;
-    private PreparedStatement psUpdate;
-    private PreparedStatement psCariSemua;
+    private String sqlInsert = "insert into jenis_produk (kode, nama) "
+            + "values (?,?)";
+    private String sqlUpdate = "update jenis_produk set kode=?, nama=? "
+            + "where id = ?";
+    private String sqlCariSemuaJenisProduk = "select * from jenis_produk order by kode";
 
     public void setDataSource(DataSource dataSource) throws Exception {
         this.dataSource = dataSource;
-
-        String sqlInsert = "insert into jenis_produk (kode, nama) "
-                + "values (?,?)";
-        String sqlUpdate = "update jenis_produk set kode=?, nama=? "
-                + "where id = ?";
-        String sqlCariSemuaJenisProduk = "select * from jenis_produk order by kode";
-
-        psInsert = dataSource.getConnection().prepareStatement(sqlInsert);
-        psUpdate = dataSource.getConnection().prepareStatement(sqlUpdate);
-        psCariSemua = dataSource.getConnection().prepareStatement(sqlCariSemuaJenisProduk);
     }
-    
+
     public void simpan(JenisProduk jp) throws Exception {
+        Connection c = dataSource.getConnection();
         if (jp.getId() == null) {
+
+            PreparedStatement psInsert = c.prepareStatement(sqlInsert);
             psInsert.setString(1, jp.getKode());
             psInsert.setString(2, jp.getNama());
 
             psInsert.executeUpdate();
         } else {
+            PreparedStatement psUpdate = c.prepareStatement(sqlUpdate);
             psUpdate.setString(1, jp.getKode());
             psUpdate.setString(2, jp.getNama());
             psUpdate.setInt(5, jp.getId());
 
             psUpdate.executeUpdate();
         }
+        c.close();
     }
-    
+
     public List<JenisProduk> cariSemuaJenisProduk() throws Exception {
         List<JenisProduk> hasil = new ArrayList<JenisProduk>();
-        
+        Connection c = dataSource.getConnection();
+        PreparedStatement psCariSemua = dataSource.getConnection().prepareStatement(sqlCariSemuaJenisProduk);
         ResultSet rs = psCariSemua.executeQuery();
-        while(rs.next()){
+        while (rs.next()) {
             JenisProduk jp = new JenisProduk();
             jp.setId(rs.getInt("id"));
             jp.setKode(rs.getString("kode"));
             jp.setNama(rs.getString("nama"));
             hasil.add(jp);
         }
-        
+        c.close();
         return hasil;
     }
 }
