@@ -24,7 +24,7 @@
                     <tr>
                         <td>Nama</td>
                         <td>
-                            <input type="text" name="nama" value="" />
+                            <spring:input path="nama"/>
                         </td>
                         <td>
                             <spring:errors path="nama" />    
@@ -33,7 +33,7 @@
                     <tr>
                         <td>Harga</td>
                         <td>
-                            <input type="text" name="harga" value="" />
+                            <spring:input path="harga"/>
                         </td>
                         <td>
                             <spring:errors path="harga" />    

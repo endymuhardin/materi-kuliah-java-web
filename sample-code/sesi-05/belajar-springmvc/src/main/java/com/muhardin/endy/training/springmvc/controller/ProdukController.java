@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
@@ -29,9 +30,15 @@ public class ProdukController {
     }
     
     @RequestMapping(value="/produk/form", method = RequestMethod.GET)
-    public ModelMap tampilkanFormProduk(){
+    public ModelMap tampilkanFormProduk(@RequestParam(required = false) Integer id) throws Exception {
         System.out.println("Menampilkan Form Produk");
-        Produk p = new Produk();
+        
+        Produk p = produkDao.cariById(id);
+        
+        if(p == null){
+            p = new Produk();
+        }
+        
         ModelMap mm = new ModelMap();
         mm.addAttribute("produk", p);
         return mm;

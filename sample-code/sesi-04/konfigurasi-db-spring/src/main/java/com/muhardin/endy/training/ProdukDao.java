@@ -7,6 +7,7 @@ package com.muhardin.endy.training;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
@@ -27,6 +28,7 @@ public class ProdukDao {
     private String sqlUpdate = "update produk set kode=?, nama=?, harga=?, terakhir_update=? "
             + "where id = ?";
     private String sqlCariSemuaProduk = "select * from produk order by kode";
+    private String sqlCariById = "select * from produk where id = ?";
 
     public void simpan(Produk p) throws Exception {
         Connection c = dataSource.getConnection();
@@ -60,16 +62,37 @@ public class ProdukDao {
         
         ResultSet rs = psCariSemuaProduk.executeQuery();
         while (rs.next()) {
-            Produk p = new Produk();
-            p.setId(rs.getInt("id"));
-            p.setKode(rs.getString("kode"));
-            p.setNama(rs.getString("nama"));
-            p.setHarga(rs.getBigDecimal("harga"));
-            p.setTerakhirUpdate(rs.getDate("terakhir_update"));
+            Produk p = konversiResultSetKeProduk(rs);
             hasil.add(p);
         }
 
         c.close();
         return hasil;
+    }
+
+    public Produk cariById(Integer id) throws Exception {
+        if(id == null){
+            return null;
+        }
+        Connection c = dataSource.getConnection();
+        PreparedStatement psCariById = c.prepareStatement(sqlCariById);
+        psCariById.setInt(1, id);
+        ResultSet rs = psCariById.executeQuery();
+        if(!rs.next()) {
+            return null;
+        }
+        Produk p = konversiResultSetKeProduk(rs);
+        c.close();
+        return p;
+    }
+
+    private Produk konversiResultSetKeProduk(ResultSet rs) throws SQLException {
+        Produk p = new Produk();
+        p.setId(rs.getInt("id"));
+        p.setKode(rs.getString("kode"));
+        p.setNama(rs.getString("nama"));
+        p.setHarga(rs.getBigDecimal("harga"));
+        p.setTerakhirUpdate(rs.getDate("terakhir_update"));
+        return p;
     }
 }
