@@ -1,4 +1,4 @@
-# Praktikum 5 #
+# Praktikum 6 #
 
 * Waktu : 200 menit
 * Keterangan : melanjutkan project praktikum sebelumnya
