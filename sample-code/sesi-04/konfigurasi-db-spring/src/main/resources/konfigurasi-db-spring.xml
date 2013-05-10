@@ -15,5 +15,9 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="produkDao" class="com.muhardin.endy.training.ProdukDao">
         <property name="dataSource" ref="dataSource" />
     </bean>
+    
+    <bean id="jenisProdukDao" class="com.muhardin.endy.training.JenisProdukDao">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
 
 </beans>
