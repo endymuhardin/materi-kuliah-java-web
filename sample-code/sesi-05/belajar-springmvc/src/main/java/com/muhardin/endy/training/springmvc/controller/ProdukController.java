@@ -59,4 +59,14 @@ public class ProdukController {
         status.setComplete();
         return "redirect:list";
     }
+    
+    @RequestMapping("/produk/delete")
+    public String hapusProduk(@RequestParam Integer id) {
+        try {
+            produkDao.hapus(id);
+        } catch (Exception err){
+            System.out.println("Gagal hapus : "+err.getMessage());
+        }
+        return "redirect:list";
+    }
 }

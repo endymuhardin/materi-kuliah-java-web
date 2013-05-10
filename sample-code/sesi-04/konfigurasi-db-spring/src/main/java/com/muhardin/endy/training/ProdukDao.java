@@ -29,6 +29,7 @@ public class ProdukDao {
             + "where id = ?";
     private String sqlCariSemuaProduk = "select * from produk order by kode";
     private String sqlCariById = "select * from produk where id = ?";
+    private String sqlHapusById = "delete from produk where id = ?";
 
     public void simpan(Produk p) throws Exception {
         Connection c = dataSource.getConnection();
@@ -94,5 +95,16 @@ public class ProdukDao {
         p.setHarga(rs.getBigDecimal("harga"));
         p.setTerakhirUpdate(rs.getDate("terakhir_update"));
         return p;
+    }
+
+    public void hapus(Integer id) throws Exception {
+        if(id == null){
+            return;
+        }
+        Connection c = dataSource.getConnection();
+        PreparedStatement psHapusById = c.prepareStatement(sqlHapusById);
+        psHapusById.setInt(1, id);
+        psHapusById.executeUpdate();
+        c.close();
     }
 }
