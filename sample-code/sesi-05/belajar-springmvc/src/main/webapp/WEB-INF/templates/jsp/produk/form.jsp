@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,29 +9,35 @@
     <body>
         <h1>Edit Produk</h1>
         
-        <form method="POST">
+        <spring:form modelAttribute="produk">
             <table border="1">
                 <tbody>
                     <tr>
                         <td>Kode</td>
                         <td>
-                            <input name="kode">
+                            <spring:input path="kode"/>
                         </td>
-                        <td></td>
+                        <td>
+                            <spring:errors path="kode" />                            
+                        </td>
                     </tr>
                     <tr>
                         <td>Nama</td>
                         <td>
                             <input type="text" name="nama" value="" />
                         </td>
-                        <td></td>
+                        <td>
+                            <spring:errors path="nama" />    
+                        </td>
                     </tr>
                     <tr>
                         <td>Harga</td>
                         <td>
                             <input type="text" name="harga" value="" />
                         </td>
-                        <td></td>
+                        <td>
+                            <spring:errors path="harga" />    
+                        </td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
@@ -40,7 +47,7 @@
                 </tbody>
             </table>
 
-        </form>
+        </spring:form>
         
     </body>
 </html>
