@@ -40,7 +40,7 @@
 
 6. Test aplikasi untuk mengupload file, pastikan file yang diupload sudah muncul di server
 
-7. Buat controller untuk menampilkan isi folder tujuan upload. Untuk mendapatkan daftar file dalam folder, gunakan method [File.listFiles](http://docs.oracle.com/javase/6/docs/api/java/io/File.html#listFiles())
+7. Buat controller untuk menampilkan isi folder tujuan upload. Untuk mendapatkan daftar file dalam folder, gunakan method [listFiles dalam class java.io.File](http://docs.oracle.com/javase/6/docs/api/java/io/File.html)
 
 8. Buat template jsp untuk menampilkan isi folder tujuan upload
 
