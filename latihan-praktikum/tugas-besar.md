@@ -18,6 +18,7 @@ Aturan Main :
   - nilai akhir = rata2 dari seluruh nilai (5 nilai)
 
 Tahap : 
+
 1. Presentasi Aplikasi : Apa yang akan dibuat
        - UI Mockup
        - Proses Bisnis
