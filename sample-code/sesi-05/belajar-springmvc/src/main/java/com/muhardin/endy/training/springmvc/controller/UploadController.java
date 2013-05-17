@@ -1,7 +1,10 @@
 package com.muhardin.endy.training.springmvc.controller;
 
+import com.muhardin.endy.training.springmvc.domain.InformasiFile;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
@@ -47,9 +50,22 @@ public class UploadController {
     }
     
     @RequestMapping(value="/upload/list")
-    public ModelMap tampilkanHasilUpload(){
+    public ModelMap tampilkanHasilUpload(HttpSession session){
         ModelMap mm = new ModelMap();
         
+        File folderUpload = tujuanUpload(session);
+        File[] isi = folderUpload.listFiles();
+        
+        List<InformasiFile> daftarInformasiFile = new ArrayList<InformasiFile>();
+        
+        for (File f : isi) {
+            InformasiFile inf = new InformasiFile();
+            inf.setNama(f.getName());
+            inf.setUkuran(f.length());
+            daftarInformasiFile.add(inf);
+        }
+        
+        mm.addAttribute("daftarInformasiFile", daftarInformasiFile);
         return mm;
     }
 
