@@ -24,3 +24,6 @@ build
 dist
 private
 
+
+# Folder hasil upload
+/sample-code/sesi-05/belajar-springmvc/src/main/webapp/uploads/
