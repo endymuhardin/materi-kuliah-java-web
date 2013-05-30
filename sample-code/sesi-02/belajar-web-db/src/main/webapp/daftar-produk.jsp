@@ -9,6 +9,8 @@
     <body>
         <h1>Daftar Produk</h1>
         
+        <a href="edit-produk">Tambah Data Produk</a>
+        
         <table border="1">
             <thead>
                 <tr>

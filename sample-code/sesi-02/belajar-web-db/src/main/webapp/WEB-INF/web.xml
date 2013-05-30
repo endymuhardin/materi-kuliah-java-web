@@ -4,11 +4,14 @@
         <servlet-name>DaftarProduk</servlet-name>
         <servlet-class>belajar.webdb.servlet.DaftarProdukServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditProdukServlet</servlet-name>
+        <servlet-class>belajar.webdb.servlet.EditProdukServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DaftarProduk</servlet-name>
         <url-pattern>/daftar-produk</url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>HapusProduk</servlet-name>
         <servlet-class>belajar.webdb.servlet.HapusProdukServlet</servlet-class>
@@ -16,5 +19,9 @@
     <servlet-mapping>
         <servlet-name>HapusProduk</servlet-name>
         <url-pattern>/hapus-produk</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProdukServlet</servlet-name>
+        <url-pattern>/edit-produk</url-pattern>
     </servlet-mapping>
 </web-app>
