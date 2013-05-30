@@ -90,4 +90,11 @@ public class ProdukDao {
         p.setTerakhirUpdate(rs.getDate("terakhir_update"));
         return p;
     }
+
+    public void hapus(Integer id) throws SQLException {
+        String sql = "delete from produk where id = ?";
+        PreparedStatement ps = koneksi.prepareStatement(sql);
+        ps.setInt(1, id);
+        ps.executeUpdate();
+    }
 }

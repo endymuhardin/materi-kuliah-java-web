@@ -8,4 +8,13 @@
         <servlet-name>DaftarProduk</servlet-name>
         <url-pattern>/daftar-produk</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>HapusProduk</servlet-name>
+        <servlet-class>belajar.webdb.servlet.HapusProdukServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HapusProduk</servlet-name>
+        <url-pattern>/hapus-produk</url-pattern>
+    </servlet-mapping>
 </web-app>
