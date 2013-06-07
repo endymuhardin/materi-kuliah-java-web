@@ -37,4 +37,7 @@ Tahap :
        - edge handling : handle kasus khusus (tidak ada data di tabel)
    
 5. Laporan dan Dokumentasi
+       - User Manual (Cara pakai aplikasi)
+       - Installation Guide (Cara instal aplikasi)
+       - Penjelasan flow kode program per fitur (ketika fitur X dijalankan, kode program mana saja yang dijalankan)
 
