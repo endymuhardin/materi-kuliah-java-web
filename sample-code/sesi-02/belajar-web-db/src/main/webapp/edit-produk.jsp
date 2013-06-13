@@ -8,7 +8,8 @@
     <body>
         <h1>Edit Produk</h1>
         
-        <form action="edit-produk" method="POST">
+        <!-- kalau mau upload, formnya harus menggunakan encoding multipart/form-data -->
+        <form action="edit-produk" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="id" value="${produk.id}">
             <table border="0">
                 <tbody>
@@ -28,6 +29,12 @@
                         <td>Harga</td>
                         <td>
                             <input name="harga" value="${produk.harga}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Gambar</td>
+                        <td>
+                            <input name="gambar" type="file">
                         </td>
                     </tr>
                     <tr>
