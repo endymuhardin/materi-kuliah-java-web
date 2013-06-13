@@ -91,7 +91,11 @@ public class EditProdukServlet extends HttpServlet {
                             p.setHarga(new BigDecimal(fileItem.getString()));
                         }
                     } else {
+                        // tulis ke file
+                        fileItem.write(new File(lokasi + File.separator + fileItem.getName()));
                         
+                        // simpan lokasi di tabel produk
+                        p.setGambar("gambar/"+fileItem.getName());
                     }
                 }
 
