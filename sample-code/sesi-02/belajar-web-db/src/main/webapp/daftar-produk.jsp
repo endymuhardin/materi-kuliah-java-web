@@ -18,6 +18,7 @@
                     <th>Nama</th>
                     <th>Harga</th>
                     <th>Terakhir Update</th>
+                    <th>Foto</th>
                     <th>&nbsp;</th>
                 </tr>
             </thead>
@@ -28,6 +29,9 @@
                     <td>${produk.nama}</td>
                     <td>${produk.harga}</td>
                     <td>${produk.terakhirUpdate}</td>
+                    <td>
+                        <img src="${produk.gambar}">
+                    </td>
                     <td>
                         <a href="edit-produk?id=${produk.id}">edit</a> | 
                         <a href="hapus-produk?id=${produk.id}">hapus</a>
