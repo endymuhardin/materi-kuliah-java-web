@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -91,11 +92,17 @@ public class EditProdukServlet extends HttpServlet {
                             p.setHarga(new BigDecimal(fileItem.getString()));
                         }
                     } else {
+                        // namafile harus unik
+                        String namaFile = UUID.randomUUID().toString();
+                        
+                        // ambil extension
+                        String extensionFile = fileItem.getName().substring(fileItem.getName().lastIndexOf("."));
+                        
                         // tulis ke file
-                        fileItem.write(new File(lokasi + File.separator + fileItem.getName()));
+                        fileItem.write(new File(lokasi + File.separator + namaFile + extensionFile));
                         
                         // simpan lokasi di tabel produk
-                        p.setGambar("gambar/"+fileItem.getName());
+                        p.setGambar("gambar/"+namaFile + extensionFile);
                     }
                 }
 
