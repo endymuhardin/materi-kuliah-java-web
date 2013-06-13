@@ -7,6 +7,7 @@ public class Produk {
     private Integer id;
     private String kode;
     private String nama;
+    private String gambar;
     private BigDecimal harga;
     private Date terakhirUpdate;
 
@@ -48,6 +49,14 @@ public class Produk {
 
     public void setTerakhirUpdate(Date terakhirUpdate) {
         this.terakhirUpdate = terakhirUpdate;
+    }
+
+    public String getGambar() {
+        return gambar;
+    }
+
+    public void setGambar(String gambar) {
+        this.gambar = gambar;
     }
     
     

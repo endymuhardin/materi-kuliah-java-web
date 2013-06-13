@@ -32,21 +32,23 @@ public class ProdukDao {
     
     public void simpan(Produk p) throws Exception {
         if(p.getId() == null){
-            String sql = "insert into produk (kode,nama,harga,terakhir_update) values (?,?,?,?)";
+            String sql = "insert into produk (kode,nama,harga,gambar,terakhir_update) values (?,?,?,?,?)";
             PreparedStatement ps = koneksi.prepareStatement(sql);
             ps.setString(1, p.getKode());
             ps.setString(2, p.getNama());
             ps.setBigDecimal(3, p.getHarga());
-            ps.setDate(4, new java.sql.Date(p.getTerakhirUpdate().getTime()));
+            ps.setString(4, p.getGambar());
+            ps.setDate(5, new java.sql.Date(p.getTerakhirUpdate().getTime()));
             ps.executeUpdate();
         } else {
-            String sql = "update produk set kode=?, nama=?, harga=?, terakhir_update=? where id=?";
+            String sql = "update produk set kode=?, nama=?, harga=?, gambar=?, terakhir_update=? where id=?";
             PreparedStatement ps = koneksi.prepareStatement(sql);
             ps.setString(1, p.getKode());
             ps.setString(2, p.getNama());
             ps.setBigDecimal(3, p.getHarga());
-            ps.setDate(4, new java.sql.Date(p.getTerakhirUpdate().getTime()));
-            ps.setInt(5, p.getId());
+            ps.setString(4, p.getGambar());
+            ps.setDate(5, new java.sql.Date(p.getTerakhirUpdate().getTime()));
+            ps.setInt(6, p.getId());
             ps.executeUpdate();
         }
     }
@@ -87,6 +89,7 @@ public class ProdukDao {
         p.setKode(rs.getString("kode"));
         p.setNama(rs.getString("nama"));
         p.setHarga(rs.getBigDecimal("harga"));
+        p.setGambar(rs.getString("gambar"));
         p.setTerakhirUpdate(rs.getDate("terakhir_update"));
         return p;
     }

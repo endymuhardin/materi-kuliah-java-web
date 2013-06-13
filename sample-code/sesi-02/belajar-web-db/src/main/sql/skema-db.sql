@@ -2,6 +2,7 @@ create table produk (
     id INT PRIMARY KEY AUTO_INCREMENT, 
     kode VARCHAR(30), 
     nama VARCHAR(255),
+    gambar VARCHAR(255),
     harga DECIMAL(19,2),
     terakhir_update DATETIME
 );
