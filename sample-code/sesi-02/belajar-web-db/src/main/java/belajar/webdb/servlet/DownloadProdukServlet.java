@@ -18,12 +18,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.export.JRXlsExporter;
 
 /**
  *
@@ -54,8 +56,16 @@ public class DownloadProdukServlet extends HttpServlet {
 
             JasperPrint jrprint = JasperFillManager.fillReport(jasper, daftarParameter, dataSource);
 
-            if ("pdf".equalsIgnoreCase(format)) {
-                // 3.a. Export menjadi PDF
+            if ("xls".equalsIgnoreCase(format)) {
+                // 3.a. Export menjadi XLS
+                resp.setContentType("application/vnd.ms-excel");
+                resp.setHeader("Content-Disposition", "attachment; filename=daftar-produk.xls");
+                JRXlsExporter xlsExporter = new JRXlsExporter();
+                xlsExporter.setParameter(JRExporterParameter.JASPER_PRINT, jrprint);
+                xlsExporter.setParameter(JRExporterParameter.OUTPUT_STREAM, resp.getOutputStream());
+                xlsExporter.exportReport();
+            } else if ("pdf".equalsIgnoreCase(format)) {
+                // 3.b. Export menjadi PDF
                 resp.setContentType("application/pdf");
                 resp.setHeader("Content-Disposition", "attachment; filename=daftar-produk.pdf");
                 //resp.setHeader("Content-Disposition", "inline; filename=daftar-produk.pdf");
