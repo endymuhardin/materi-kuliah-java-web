@@ -8,6 +8,10 @@
         <servlet-name>EditProdukServlet</servlet-name>
         <servlet-class>belajar.webdb.servlet.EditProdukServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DownloadProdukServlet</servlet-name>
+        <servlet-class>belajar.webdb.servlet.DownloadProdukServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DaftarProduk</servlet-name>
         <url-pattern>/daftar-produk</url-pattern>
@@ -23,5 +27,9 @@
     <servlet-mapping>
         <servlet-name>EditProdukServlet</servlet-name>
         <url-pattern>/edit-produk</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DownloadProdukServlet</servlet-name>
+        <url-pattern>/download-produk</url-pattern>
     </servlet-mapping>
 </web-app>

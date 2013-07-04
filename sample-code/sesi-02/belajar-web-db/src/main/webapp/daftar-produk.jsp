@@ -9,7 +9,10 @@
     <body>
         <h1>Daftar Produk</h1>
         
-        <a href="edit-produk">Tambah Data Produk</a>
+        <a href="edit-produk">Tambah Data Produk</a> <br>
+       
+        Download data produk <a href="download-produk?format=xls">XLS</a> | 
+        <a href="download-produk?format=pdf">PDF</a> 
         
         <table border="1">
             <thead>
