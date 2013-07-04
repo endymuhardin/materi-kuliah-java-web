@@ -1,5 +1,8 @@
 logs
 
+# Jasper Report
+*.jasper
+
 # IntelliJ IDEA
 *.iml
 .idea
